@@ -5,33 +5,84 @@ import { StyleSheet, Text, View, Pressable } from 'react-native';
 // create a 3x3 grid for tic-tac-toe
 export default function App() {
   return (
-    <View style={styles.grid}>
-      <View style={styles.row}>
-        <Pressable style={styles.cell}>
-          <Text style={styles.cellText}>X</Text>
-        </Pressable>
+    <View style={styles.container}>
+      <View style={styles.grid}>
+        <View style={styles.row}>
+          <Pressable style={({ pressed }) => [styles.cell, pressed && styles.cellButton]}>
+            <Text style={styles.cellText}>O</Text>
+          </Pressable>
+          <Pressable style={({ pressed }) => [styles.cell, pressed && styles.cellButton]}>
+            <Text style={styles.cellText}></Text>
+          </Pressable>
+          <Pressable style={({ pressed }) => [styles.cell, pressed && styles.cellButton]}>
+            <Text style={styles.cellText}>O</Text>
+          </Pressable>
+        </View>
       </View>
-
-      <View style={styles.row}>
-        <Pressable style={styles.cell}>
-          <Text style={styles.cellText}>O</Text>
-        </Pressable>
+      
+      <View style={styles.grid}>
+        <View style={styles.row}>
+          <Pressable style={({ pressed }) => [styles.cell, pressed && styles.cellButton]}>
+            <Text style={styles.cellText}>X</Text>
+          </Pressable>
+          <Pressable style={({ pressed }) => [styles.cell, pressed && styles.cellButton]}>
+            <Text style={styles.cellText}>X</Text>
+          </Pressable>
+          <Pressable style={({ pressed }) => [styles.cell, pressed && styles.cellButton]}>
+            <Text style={styles.cellText}>O</Text>
+          </Pressable>
+        </View>
       </View>
+      
+      <View style={styles.grid}>
+        <View style={styles.row}>
+          <Pressable style={({ pressed }) => [styles.cell, pressed && styles.cellButton]}>
+            <Text style={styles.cellText}>X</Text>
+          </Pressable>
+          <Pressable style={({ pressed }) => [styles.cell, pressed && styles.cellButton]}>
+            <Text style={styles.cellText}></Text>
+          </Pressable>
+          <Pressable style={({ pressed }) => [styles.cell, pressed && styles.cellButton]}>
+            <Text style={styles.cellText}>O</Text>
+        </Pressable>
+        </View>
+      </View>
+ 
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 10,
-    backgroundColor: '#fff',
+    flex: 1,
+    backgroundColor: '#ffffff',
     alignItems: 'center',
     justifyContent: 'center',
+    // flexWrap: "wrap",
   },
   grid: {
-    marginTop: 10,
+    borderWidth: 10,
+    borderColor: "#a45c0e",
+  },
+  row: {
+    flexDirection: "row",
+  },
+  cell: {
+    width: 100,
+    height: 100,
     borderWidth: 1,
     borderColor: "#000",
-    padding: 5,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "green",
+  },
+  cellText: {
+    fontSize: 48,
+    fontWeight: "bold",
+    color: "#fff",
+  },
+  cellButton: {
+    backgroundColor: "red",
+    opacity: 0.5,
   }
 });
