@@ -1,7 +1,7 @@
 {
   "name": "mad_ex_week2",
   "version": "1.0.0",
-  "description": "",
+  "description": "This project contains exercises for Week 2 of the Mobile Application Development course. It covers the JavaScript functions, closures and arrow functions.",
   "main": "index.js",
   "scripts": {
     "test": "jest"
@@ -11,5 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "jest": "^29.7.0"
-  }
+  },
+  "devDependencies": {},
+  "type": "commonjs"
 }
