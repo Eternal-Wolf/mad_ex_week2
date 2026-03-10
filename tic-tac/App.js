@@ -18,9 +18,7 @@ export default function App() {
             <Text style={styles.cellText}>O</Text>
           </Pressable>
         </View>
-      </View>
       
-      <View style={styles.grid}>
         <View style={styles.row}>
           <Pressable style={({ pressed }) => [styles.cell, pressed && styles.cellButton]}>
             <Text style={styles.cellText}>X</Text>
@@ -32,9 +30,7 @@ export default function App() {
             <Text style={styles.cellText}>O</Text>
           </Pressable>
         </View>
-      </View>
       
-      <View style={styles.grid}>
         <View style={styles.row}>
           <Pressable style={({ pressed }) => [styles.cell, pressed && styles.cellButton]}>
             <Text style={styles.cellText}>X</Text>
@@ -44,10 +40,9 @@ export default function App() {
           </Pressable>
           <Pressable style={({ pressed }) => [styles.cell, pressed && styles.cellButton]}>
             <Text style={styles.cellText}>O</Text>
-        </Pressable>
+          </Pressable>
         </View>
       </View>
- 
     </View>
   );
 }
@@ -61,7 +56,7 @@ const styles = StyleSheet.create({
     // flexWrap: "wrap",
   },
   grid: {
-    borderWidth: 10,
+    borderWidth: 40,
     borderColor: "#a45c0e",
   },
   row: {
