@@ -45,8 +45,18 @@
  */
 
 function accountGenerator(accountName, initBalance) {
-  // Your implementation here
+  let balance = initBalance;
+  return function(amount) {
+    balance += amount;
+    return `You deposited ${amount} to your ${accountName} Account and the current balance is ${balance}.`;
+  }
 }
+
+// call the function to test output
+const myAccount = accountGenerator("Saving", 100);
+console.log(myAccount(50));
+// call again to test if balance is updated
+console.log(myAccount(25));
 
 /**
  * Exercise 2: Distributing Tips
@@ -81,6 +91,9 @@ function distributeTips(...args) {
   return { food, drink };
 }
 
+// // call the function to test output
+console.log(distributeTips(10, 5, 13));
+
 /**
  * Exercise 3: Customizable Greeting Generator with Closure
  *
@@ -108,9 +121,21 @@ function distributeTips(...args) {
  * @return {Function} A new function that takes a name and an optional greeting to create a greeting message.
  */
 
-function greetingGenerator(defaultGreeting = "Hello") {
-  // Your implementation here
+function greetingGenerator(defaultGreeting="Hello") {
+  return function(name, greeting) {
+    return `${greeting || defaultGreeting}, ${name}!`
+  }
 }
+
+// call the function to test output
+const casualGreet = greetingGenerator();
+console.log(casualGreet("Jeremy"));
+
+const formalGreet = greetingGenerator("Salutations");
+console.log(formalGreet ("Jeremy"));
+
+const broGreet = greetingGenerator();
+console.log(broGreet("Jeremy", "Sup"))
 
 /**
  * Exercise 4: Merge Arrays and Extract Elements
@@ -132,8 +157,14 @@ function greetingGenerator(defaultGreeting = "Hello") {
  */
 
 function mergeAndExtract(array1, array2) {
-  // Your implementation here
+  const mergedArray = [...array1, ...array2];
+  // const sortedArray = mergedArray.sort((a, b) => a - b);
+  const [first, second, ...remaining] = mergedArray; // sortedArray;
+  return { first, second, remaining };
 }
+
+// // call the function to test output
+console.log(mergeAndExtract([3, 4, 5, 6], [1, 2, 3, 4, 5, 6]));
 
 /**
  * Exercise 5: Alternating Harmonic Series Calculation
@@ -162,8 +193,15 @@ function mergeAndExtract(array1, array2) {
  */
 
 function calculateAlternatingHarmonic(n, accumulator = 0, index = 1) {
-  // Your implementation here
+  if (index > n) {
+    return accumulator;
+  }
+  const term = (index % 2 === 1) ? (1 / index) : (-1 / index);
+  return calculateAlternatingHarmonic(n, accumulator + term, index + 1);
 }
+
+// call the function to test output
+console.log(calculateAlternatingHarmonic(4));
 
 // Export the function for testing
 module.exports = {
